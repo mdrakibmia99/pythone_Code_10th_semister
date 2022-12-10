@@ -17,6 +17,7 @@ def likelyHoodFunction(uniqueSpecisValueLen,select):
 
 uniqueSpecisValue = fullTable.specis.unique()
 uniqueSpecisValueLen = len(uniqueSpecisValue)
+print(fullTable)
 print(uniqueSpecisValue,"this is target value\n")
 
 # color and specis matrix
