@@ -4,6 +4,7 @@ import numpy  as np
 fullTable = pd.read_csv('likelyHoodMatrix.csv')
 print(fullTable)
 
+# likelyHoodFunction create 
 def likelyHoodFunction(inputArray,HeadingValueList,speciesValue):
     totalSpeciesValue=len(fullTable.species)
     uniqueSpecies = (fullTable.species== speciesValue).sum()
@@ -14,21 +15,23 @@ def likelyHoodFunction(inputArray,HeadingValueList,speciesValue):
         probability=probability * values
     return probability
         
+
+# get all require input 
 getColor=input("Enter Color Name:")
 getLegs=int(input("Enter Legs Value:"))
-getHeight=input("ENter height value:")
+getHeight=input("Enter height value:")
 getSmelly=input("Enter smelly value:")     
-HeadingValueList=["color","legs","height","smelly"]
-
+# all input add in a array 
 inputArray=[getColor,getLegs,getHeight,getSmelly]
-print(inputArray)
-# for species M 
-forM=likelyHoodFunction(inputArray,HeadingValueList,'m')
+# This is all heading value list in a array 
+HeadingValueList=["color","legs","height","smelly"]
+# Store value for species M 
+storeProbabilityM = likelyHoodFunction(inputArray,HeadingValueList,'m')
 
-# for species H 
-forH=likelyHoodFunction(inputArray,HeadingValueList,'h')
+# Store value for species H 
+storeProbabilityH=likelyHoodFunction(inputArray,HeadingValueList,'h')
 
-if(forM>forH):
+if(storeProbabilityM>storeProbabilityH):
     print('Species will be = m')
 else:
     print('Species will be = h')

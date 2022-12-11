@@ -2,34 +2,34 @@ import pandas as pd
 import numpy  as np
 
 fullTable = pd.read_csv('likelyHoodMatrix.csv')
-def likelyHoodFunction(uniqueSpecisValueLen,select):
+def likelyHoodFunction(uniqueSpeciesValueLen,select):
     matrixArray = []
     uniqueHeaderValue = fullTable[select].unique()
     uniqueHeaderValueLen=len(uniqueHeaderValue)
     for i in range(0, uniqueHeaderValueLen):
-        for j in range(0, uniqueSpecisValueLen):
-            CSh = ((fullTable[select] == uniqueHeaderValue[i]) & (fullTable.specis == uniqueSpecisValue[j])).sum()
-            specisTotalValue = (fullTable.specis == uniqueSpecisValue[j]).sum()
-            matrixArray.append(CSh / specisTotalValue)
-    print(select," and specis matrix wil be :", uniqueHeaderValueLen, "X", uniqueSpecisValueLen, "matrix")
-    print(uniqueHeaderValue, "select coloumn direction")
-    print(np.reshape(matrixArray, (uniqueHeaderValueLen, uniqueSpecisValueLen)),"\n")
+        for j in range(0, uniqueSpeciesValueLen):
+            CSh = ((fullTable[select] == uniqueHeaderValue[i]) & (fullTable.species == uniqueSpeciesValue[j])).sum()
+            speciesTotalValue = (fullTable.species == uniqueSpeciesValue[j]).sum()
+            matrixArray.append(CSh / speciesTotalValue)
+    print(select," and species matrix wil be :", uniqueHeaderValueLen, "X", uniqueSpeciesValueLen, "matrix")
+    print(uniqueHeaderValue, "select column direction")
+    print(np.reshape(matrixArray, (uniqueHeaderValueLen, uniqueSpeciesValueLen)),"\n")
 
-uniqueSpecisValue = fullTable.specis.unique()
-uniqueSpecisValueLen = len(uniqueSpecisValue)
+uniqueSpeciesValue = fullTable.species.unique()
+uniqueSpeciesValueLen = len(uniqueSpeciesValue)
 print(fullTable)
-print(uniqueSpecisValue,"this is target value\n")
+print(uniqueSpeciesValue,"this is target value\n")
 
-# color and specis matrix
-likelyHoodFunction( uniqueSpecisValueLen,"color")
+# color and species matrix
+likelyHoodFunction( uniqueSpeciesValueLen,"color")
 
-# legs and specis matrix
-likelyHoodFunction( uniqueSpecisValueLen,"legs")
+# legs and species matrix
+likelyHoodFunction( uniqueSpeciesValueLen,"legs")
 
-# height and specis matrix
-likelyHoodFunction(uniqueSpecisValueLen,"height")
+# height and species matrix
+likelyHoodFunction(uniqueSpeciesValueLen,"height")
 
-# smelly and specis matrix
-likelyHoodFunction(uniqueSpecisValueLen,"smelly")
+# smelly and species matrix
+likelyHoodFunction(uniqueSpeciesValueLen,"smelly")
 
 
