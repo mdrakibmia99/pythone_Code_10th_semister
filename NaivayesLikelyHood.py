@@ -1,5 +1,4 @@
 import pandas as pd
-import numpy  as np
 
 fullTable = pd.read_csv('likelyHoodMatrix.csv')
 print(fullTable)
